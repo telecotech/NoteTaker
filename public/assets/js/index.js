@@ -1,8 +1,12 @@
+
+
+
 let noteTitle;
 let noteText;
 let saveNoteBtn;
 let newNoteBtn;
 let noteList;
+
 
 if (window.location.pathname === '/notes') {
   noteTitle = document.querySelector('.note-title');
@@ -168,6 +172,11 @@ const renderNoteList = async (notes) => {
   if (window.location.pathname === '/notes') {
     noteListItems.forEach((note) => noteList[0].append(note));
   }
+
+
+
+
+
 };
 
 // Gets notes from the db and renders them to the sidebar
@@ -181,3 +190,12 @@ if (window.location.pathname === '/notes') {
 }
 
 getAndRenderNotes();
+
+
+const express = require('express');
+const app = express();
+const routes = require('./routes');
+
+
+
+app.use('/', routes);
